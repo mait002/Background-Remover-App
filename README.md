@@ -1,11 +1,12 @@
 # Background Remover Application
 
-Don't like the background of your picture? Or even better, want to use the picture like a sticker? Then use this app to remove picture's background while keeping original quality of picture!!!
+Don't like the background of your picture? Or even better, want to use the picture like a sticker? Then use this app to remove a picture's background while keeping the original quality!
 
-[Mait's BG Remover]()
+[Try Mait's BG Remover](INSERT_YOUR_URL_HERE)
 
 ## Tech Stack
 
-1. React+JavaScript Compiler for frontend
-2. Python+FastAPI for backend
+* **Frontend:** JavaScript + React (compiled with React Compiler)
+* **Backend:** Python + FastAPI
+
 
