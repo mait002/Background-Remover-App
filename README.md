@@ -2,7 +2,6 @@
 
 Don't like the background of your picture? Or even better, want to use the picture like a sticker? Then use this app to remove a picture's background while keeping the original quality!
 
-[Try Mait's BG Remover](INSERT_YOUR_URL_HERE)
 
 ## Tech Stack
 
