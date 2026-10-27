@@ -1,0 +1,454 @@
+/* =========================
+   GLOBAL
+========================= */
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  text-align: center;
+  background-color: rgb(253, 247, 239);
+  background-image: radial-gradient(
+    rgba(239, 11, 140, 0.25) 1px,
+    transparent 1px
+  );
+  background-size: 22px 22px;
+  color: #382b33;
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+.heading {
+  width: 100%;
+  padding: 22px 20px;
+  background: linear-gradient(
+    135deg,
+    #d94f87,
+    #ec6fa3
+  );
+  color: white;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+}
+
+.heading h1 {
+  margin: 0;
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+
+/* =========================
+   MAIN AREA
+========================= */
+
+.container {
+  width: min(90%, 700px);
+  min-height: 500px;
+
+  margin: 50px auto 100px;
+  padding: 30px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+
+/* =========================
+   UPLOAD CARD
+========================= */
+
+.upload-container {
+  width: 100%;
+  max-width: 520px;
+  min-height: 330px;
+
+  padding: 45px 30px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 22px;
+
+  background: rgba(255, 255, 255, 0.92);
+
+  border: 2px dashed #e26998;
+  border-radius: 24px;
+
+  box-shadow:
+    0 12px 35px rgba(90, 60, 70, 0.08);
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.upload-container:hover {
+  transform: translateY(-3px);
+
+  box-shadow:
+    0 16px 40px rgba(90, 60, 70, 0.12);
+}
+
+.upload-container h3 {
+  margin: 0;
+  font-size: 1.5rem;
+  line-height: 1.4;
+}
+
+
+/* =========================
+   BUTTONS
+========================= */
+
+button {
+  border: none;
+  border-radius: 12px;
+
+  padding: 12px 24px;
+
+  font-size: 1rem;
+  font-weight: 600;
+
+  color: white;
+  background: #d94f87;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.2s ease,
+    background-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+button:hover {
+  background: #c83f77;
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 6px 15px rgba(217, 79, 135, 0.28);
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+
+/* =========================
+   FILE SELECTION
+========================= */
+
+.file-submit-container {
+  width: 100%;
+  max-width: 520px;
+
+  padding: 35px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+
+  background: white;
+
+  border-radius: 22px;
+
+  box-shadow:
+    0 12px 35px rgba(90, 60, 70, 0.1);
+}
+
+#imageInput {
+  width: 100%;
+
+  padding: 15px;
+
+  border: 2px dashed #e7a1bd;
+  border-radius: 14px;
+
+  background-color: #fff8fb;
+
+  cursor: pointer;
+}
+
+#imageInput::file-selector-button {
+  border: none;
+  border-radius: 9px;
+
+  padding: 9px 15px;
+  margin-right: 15px;
+
+  background: #f3c1d5;
+  color: #6d2946;
+
+  font-weight: 600;
+  cursor: pointer;
+}
+
+
+/* =========================
+   PROCESSING
+========================= */
+
+.fileProcessing {
+  position: relative;
+
+  width: 100%;
+  max-width: 500px;
+
+  padding: 18px;
+
+  overflow: hidden;
+
+  background: white;
+
+  border-radius: 22px;
+
+  box-shadow:
+    0 12px 35px rgba(90, 60, 70, 0.12);
+}
+
+.userImage {
+  display: block;
+
+  width: 100%;
+  max-height: 420px;
+
+  object-fit: contain;
+
+  border-radius: 14px;
+
+  filter: brightness(0.85);
+}
+
+.fileProcessing p {
+  margin: 22px 0 15px;
+
+  font-size: 1.1rem;
+  font-weight: 600;
+
+  color: #b93f70;
+}
+
+
+/* =========================
+   SCANNING ANIMATION
+========================= */
+
+.scanLine {
+  position: absolute;
+
+  left: 18px;
+  right: 18px;
+  top: 18px;
+
+  height: 4px;
+
+  background: linear-gradient(
+    90deg,
+    transparent,
+    #ff4f9a,
+    #ffffff,
+    #ff4f9a,
+    transparent
+  );
+
+  box-shadow:
+    0 0 7px #ff4f9a,
+    0 0 15px rgba(255, 79, 154, 0.7);
+
+  animation: scan 2s ease-in-out infinite;
+}
+
+@keyframes scan {
+  0% {
+    top: 18px;
+  }
+
+  50% {
+    top: calc(100% - 105px);
+  }
+
+  100% {
+    top: 18px;
+  }
+}
+
+
+/* =========================
+   RESULT
+========================= */
+
+.output-display {
+  width: 100%;
+  max-width: 560px;
+
+  padding: 28px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 22px;
+
+  background: white;
+
+  border-radius: 24px;
+
+  box-shadow:
+    0 12px 35px rgba(90, 60, 70, 0.12);
+}
+
+.result {
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+
+/* checkerboard background helps
+   show transparent PNG backgrounds */
+
+#resultImage {
+  width: 100%;
+  max-width: 420px;
+  max-height: 420px;
+
+  object-fit: contain;
+
+  border-radius: 14px;
+
+  background-color: white;
+
+  background-image:
+    linear-gradient(
+      45deg,
+      #eeeeee 25%,
+      transparent 25%
+    ),
+    linear-gradient(
+      -45deg,
+      #eeeeee 25%,
+      transparent 25%
+    ),
+    linear-gradient(
+      45deg,
+      transparent 75%,
+      #eeeeee 75%
+    ),
+    linear-gradient(
+      -45deg,
+      transparent 75%,
+      #eeeeee 75%
+    );
+
+  background-size: 20px 20px;
+
+  background-position:
+    0 0,
+    0 10px,
+    10px -10px,
+    -10px 0;
+}
+
+
+/* =========================
+   DOWNLOAD BUTTON
+========================= */
+
+#downloadLink {
+  display: inline-block;
+
+  padding: 12px 24px;
+
+  border-radius: 12px;
+
+  text-decoration: none;
+
+  font-weight: 600;
+
+  background: #4f9d76;
+  color: white;
+
+  transition:
+    transform 0.2s ease,
+    background-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+#downloadLink:hover {
+  background: #418664;
+
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 6px 15px rgba(79, 157, 118, 0.25);
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+  width: 100%;
+  padding: 20px;
+
+  color: #765b67;
+
+  font-size: 0.9rem;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 600px) {
+
+  .heading h1 {
+    font-size: 1.6rem;
+  }
+
+  .container {
+    width: 95%;
+    margin-top: 25px;
+    padding: 15px;
+  }
+
+  .upload-container,
+  .file-submit-container,
+  .fileProcessing,
+  .output-display {
+    width: 100%;
+  }
+
+  .upload-container {
+    min-height: 280px;
+    padding: 30px 20px;
+  }
+
+  .upload-container h3 {
+    font-size: 1.25rem;
+  }
+
+  button,
+  #downloadLink {
+    width: 100%;
+  }
+}
